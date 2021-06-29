@@ -11,8 +11,8 @@
         </div>
     </div>
     <div id="search">
-        <form action="/search" method="GET">
-            <input autocomplete="off" name="search" type="text" placeholder="Recherche ...">
+        <form action="/search/" method="GET">
+            <input autocomplete="off" name="s" type="text" placeholder="Recherche ...">
             <button type="submit"></button>
         </form>
     </div>

@@ -88,23 +88,31 @@ section{
     display: flex;
 }
 
+#home #present #perso{
+    width: 45%
+}
+
 #home #present #perso p{
     text-align: justify;
 }
 
-#home #present div{
-    width: 100%;
+#home #present #carousel{
+    width: 100%
 }
 
 #home #search form{
     box-shadow: 0 0 5px 0 #777777;
     border-radius: 3px;
-    padding: 5px 13px;
-    width: 300px;
+    padding: 2px 10px 5px 10px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 #home #search form input{
-    font-size: x-large;
+    font-size: 24px;
     padding: 5px 1px;
     border: none;
     border-bottom: 1px solid;
@@ -112,9 +120,8 @@ section{
 
 #home #search form button[type='submit']{
     border: none;
-    position: absolute;
     padding: 3.8px 5px;
-    margin-top: 3px;
+    margin-top: 9px;
 }
 
 #home #search form button[type='submit']:hover{

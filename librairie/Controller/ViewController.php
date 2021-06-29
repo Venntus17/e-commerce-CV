@@ -6,6 +6,7 @@ class ViewController{
     public static function process(){
         $page = (isset($_GET['page'])) ? $_GET['page'] : 'home';
         self::userPermission($page);
+        self::searchParse();
 
         $home = null;
         $products = null;
@@ -51,6 +52,16 @@ class ViewController{
     public static function redirect($location){
         header("Location: $location", true);
         die;
+    }
+
+    private static function searchParse(){
+        if (isset($_GET['s'])){
+            $s = strchr($_SERVER['REQUEST_URI'], "?s=");
+            if ($s){
+                $s = str_replace('?s=', '', $s);
+                self::redirect("/search/$s");
+            }
+        }
     }
 }
 
