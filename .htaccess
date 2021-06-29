@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteRule ^(.*)index\.php$ / [R]
+RewriteRule ^(home)$ / [R]
+
+ErrorDocument 401 /error/401.html
+ErrorDocument 403 /error/403.html
+ErrorDocument 404 /error/404.html
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(product|contact|login|my-account|search)$ /?page=$1 [QSD,L]
+RewriteRule ^(search)/(.*)$ /?page=$1&search=$2 [QSD,L]
+RewriteRule ^(picture)/(.*)$ /img/$2 [QSD,L]

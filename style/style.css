@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "Caviar dreams";
+    src: url("font/CaviarDreams_Bold.ttf") format("truetype");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: "Caviar dreams"; /* Default font-family */
+    color: black;
+    outline: none;
+}
+
+/*==================*/
+/*===== HEADER =====*/
+/*==================*/
+header{
+    margin-top: 5px;
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav div{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 5px;
+}
+
+header nav div a img{
+    height: 70px;
+}
+
+header nav ul{
+    height: fit-content;
+}
+
+header nav div ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 20px;
+}
+
+header nav ul li a{
+    padding: 20px;
+    transition: color 300ms;
+}
+
+header nav ul li a.active{
+    color: gray;
+}
+
+header nav ul li a:hover{
+    color: gray;
+}
+
+/*===================*/
+/*===== SECTION =====*/
+/*===================*/
+
+section{
+    width: 75%;
+    margin-left: calc(25% / 2);
+}
+
+/*================*/
+/*===== HOME =====*/
+/*================*/
+
+#home{
+    display: flex;
+    flex-direction: column;
+    height: 425px;
+    justify-content: space-around;
+}
+
+#home #present{
+    display: flex;
+}
+
+#home #present #perso p{
+    text-align: justify;
+}
+
+#home #present div{
+    width: 100%;
+}
+
+#home #search form{
+    box-shadow: 0 0 5px 0 #777777;
+    border-radius: 3px;
+    padding: 5px 13px;
+    width: 300px;
+}
+
+#home #search form input{
+    font-size: x-large;
+    padding: 5px 1px;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+#home #search form button[type='submit']{
+    border: none;
+    position: absolute;
+    padding: 3.8px 5px;
+    margin-top: 3px;
+}
+
+#home #search form button[type='submit']:hover{
+    cursor: pointer;
+}
+
+#home #search form button[type='submit']:before{
+    content: url("/picture/search.png");
+    zoom: 6%;
+}
+
+/*==================*/
+/*===== FOOTER =====*/
+/*==================*/
+
+footer{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

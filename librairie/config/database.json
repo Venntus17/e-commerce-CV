@@ -1,0 +1,11 @@
+[
+    {
+        "name": "fraxel",
+        "database": "fraxel",
+        "host": "127.0.0.1",
+        "user": "administrateur",
+        "password": "6bub94z4",
+        "port": 5432,
+        "type": "pgsql"
+    }
+]
