@@ -7,7 +7,16 @@
             </p>
         </div>
         <div id="carousel">
-
+            <div class="gallery">
+                <div class="gallery-container">
+                    <img class="gallery-item gallery-item-2" src="/picture/product/ecommerce.logo_.png" data-index="1">
+                    <img class="gallery-item gallery-item-3" src="/picture/product/folder_black_web.png" data-index="2">
+                    <img class="gallery-item gallery-item-4" src="/picture/product/folder_wordpress.png" data-index="3">
+                    <img class="gallery-item" src="/picture/product/forum.png" data-index="4">
+                    <img class="gallery-item" src="/picture/product/isn-service_ico.png" data-index="5">
+                </div>
+                <div class="gallery-controls"></div>
+            </div>
         </div>
     </div>
     <div id="search">
@@ -16,4 +25,5 @@
             <button type="submit"></button>
         </form>
     </div>
+    <script src="/js/carousel.js"></script>
 </div>
