@@ -274,6 +274,48 @@ section{
   background: #555;
 }
 
+/*===================*/
+/*===== CONTACT =====*/
+/*===================*/
+
+#contact form{
+  display: flex;
+  flex-direction: column;
+}
+
+#contact form div{
+  display: flex;
+  flex-direction: column;
+}
+
+#contact form > div > div{
+  margin-top: 25px;
+}
+
+#contact form textarea{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  resize: none;
+  width: 50%;
+  height: 200px;
+}
+
+#contact form label{
+  display: flex;
+  flex-direction: column;
+}
+
+#contact form label input{
+  width: 50%;
+  font-size: 18px;
+}
+
+#contact form button{
+  width: 10%;
+  padding: 4px 0;
+  cursor: pointer;
+}
+
 /*==================*/
 /*===== FOOTER =====*/
 /*==================*/

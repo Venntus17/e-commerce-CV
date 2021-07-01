@@ -26,6 +26,7 @@ class ViewController{
 
         switch($page){
             case 'home': require_once("librairie/View/home.php");break;
+            case 'contact': require_once("librairie/View/contact.php");break;
         }
 
         if (!isset($_POST['ajax']))

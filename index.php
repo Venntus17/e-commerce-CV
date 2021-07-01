@@ -50,6 +50,9 @@ foreach($db_array as $key => $db){
 
 \Database::$db_array = $db_array;
 
+\Controller\MailController::$username = "fraxel.contact@gmail.com";
+\Controller\MailController::$password = "812332FFed";
+
 \Controller\ViewController::process();
 
 ?>
