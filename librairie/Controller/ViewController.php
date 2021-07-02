@@ -15,7 +15,7 @@ class ViewController{
         $login = null;
         switch($page){
             case 'home': $home="active";break;
-            case 'product': $products="active";break;
+            case 'products': $products="active";break;
             case 'contact': $contact="active";break;
             case 'account': $account="active";break;
             case 'login': $login="active";break;
@@ -27,6 +27,7 @@ class ViewController{
         switch($page){
             case 'home': require_once("librairie/View/home.php");break;
             case 'contact': require_once("librairie/View/contact.php");break;
+            case 'products': require_once("librairie/View/products.php");break;
         }
 
         if (!isset($_POST['ajax']))
@@ -34,7 +35,7 @@ class ViewController{
     }
 
     public static function userPermission($page){
-        $basic = ['home', 'product', 'contact', 'login', 'search'];
+        $basic = ['home', 'product', 'contact', 'login', 'search', 'products'];
         
         $allow = false;
         if (!in_array($page, $basic)){

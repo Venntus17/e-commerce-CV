@@ -14,7 +14,7 @@
                 <a href="/"><img src="/picture/logo.png" alt="Logo"></a>
                 <ul>
                     <li><a href="/" class="<?= $home ?>">Accueil</a></li>
-                    <li><a href="/product" class="<?= $products ?>">Nos produits</a></li>
+                    <li><a href="/products" class="<?= $products ?>">Nos produits</a></li>
                     <li><a href="/contact" class="<?= $contact ?>">Contact</a></li>
                 </ul>
             </div>

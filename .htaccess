@@ -11,6 +11,7 @@ ErrorDocument 404 /error/404.html
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(product|contact|login|my-account|search)$ /?page=$1 [QSD,L]
+RewriteRule ^(products|contact|login|my-account|search)$ /?page=$1 [QSD,L]
+RewriteRule ^(products)/([0-9]+)$ /?page=$1&tab=$2 [QSD,L]
 RewriteRule ^(search)/(.*)$ /?page=$1&s=$2 [QSD,L]
 RewriteRule ^(picture)/(.*)$ /img/$2 [QSD,L]
