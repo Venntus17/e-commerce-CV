@@ -278,9 +278,14 @@ section{
 /*===== CONTACT =====*/
 /*===================*/
 
+#contact{
+  display: flex;
+}
+
 #contact form{
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 #contact form div{
@@ -296,7 +301,6 @@ section{
   margin-top: 15px;
   margin-bottom: 10px;
   resize: none;
-  width: 50%;
   height: 200px;
 }
 
@@ -311,9 +315,30 @@ section{
 }
 
 #contact form button{
-  width: 10%;
+  width: 15%;
   padding: 4px 0;
   cursor: pointer;
+}
+
+#contact #errors{
+  display: flex;
+  flex-direction: column;
+}
+
+#contact #errors p{
+  padding: 15px 30px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+#contact #errors p.error{
+  background-color: #ff00005c;
+  border: 2px solid red;
+}
+
+#contact #errors p.valide{
+  background-color: #00ff005c;
+    border: 2px solid green;
 }
 
 /*==================*/

@@ -11,10 +11,36 @@ function sendMail(){
                     let res = xhr.responseText;
                     res = JSON.parse(res);
 
-                    if (Object.keys(res).length != 0){
+                    let errors = document.getElementById("errors");
+                    errors.innerHTML = "";
 
-                    }else{
+                    if (Object.keys(res).length != 0){
+                        if (res['mail']){
+                            let mail = document.createElement("p");
+                            mail.classList.add("error");
+                            mail.innerText = res['mail'];
+
+                            errors.insertAdjacentElement('beforeend', mail);
+                        }
+
+                        if (res['subject']){
+                            let subject = document.createElement("p");
+                            subject.classList.add("error");
+                            subject.innerText = res['subject'];
+
+                            errors.insertAdjacentElement('beforeend', subject);
+                        }
                         
+                    }else{
+                        let p = document.createElement("p");
+                        p.classList.add("valide");
+                        p.innerText = "Merci, votre mail à bien été envoyé !";
+
+                        errors.insertAdjacentElement("afterbegin", p);
+
+                        setTimeout(() => {
+                            errors.removeChild(p);
+                        }, 10000);
                     }
                 }
             }

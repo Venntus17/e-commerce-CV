@@ -37,6 +37,9 @@ if (isset($_POST['ajax'])){
                 <textarea id="content" name="content"></textarea>
             </div>
         </div>
-        <button type="button" id="contact-submit">Evoyer</button>
+        <button type="button" id="contact-submit">Envoyer</button>
     </form>
+    <div id="errors">
+        
+    </div>
 </div>
