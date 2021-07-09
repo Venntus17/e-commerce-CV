@@ -36,7 +36,7 @@ function sendMail(){
                         p.classList.add("valide");
                         p.innerText = "Merci, votre mail à bien été envoyé !";
 
-                        errors.insertAdjacentElement("afterbegin", p);
+                        errors.insertAdjacentElement("beforeend", p);
 
                         setTimeout(() => {
                             errors.removeChild(p);

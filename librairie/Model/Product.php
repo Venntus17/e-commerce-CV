@@ -1,9 +1,9 @@
 <?php
     namespace Model;
     Class Product{
-        private $id,$name,$icon,$price,$file,$vue;
-        public function __construct($id = null,$name = null,$icon = null,$price = null,$file = null,$vue = null){
-        $this->setId($id)->setName($name)->setIcon($icon)->setPrice($price)->setFile($file)->setVue($vue);
+        private $id,$name,$icon,$price,$file,$view,$description;
+        public function __construct($id = null,$name = null,$icon = null,$price = null,$file = null,$view = null,$description = null){
+        $this->setId($id)->setName($name)->setIcon($icon)->setPrice($price)->setFile($file)->setView($view)->setDescription($description);
     }
         
         public function setId($id){
@@ -46,12 +46,20 @@
             return $this->file;
         }
 
-        public function setVue($vue){
-            $this->vue = $vue;
+        public function setView($view){
+            $this->view = $view;
             return $this;
         }
-        public function getVue(){
-            return $this->vue;
+        public function getView(){
+            return $this->view;
+        }
+
+        public function setDescription($description){
+            $this->description = $description;
+            return $this;
+        }
+        public function getDescription(){
+            return $this->description;
         }
 
         public static function format($data){
@@ -65,8 +73,9 @@
             $icon = \Controller\ControllerController::keyExist('icon', $d);
             $price = \Controller\ControllerController::keyExist('price', $d);
             $file = \Controller\ControllerController::keyExist('file', $d);
-            $vue = \Controller\ControllerController::keyExist('vue', $d);
-            $product = new self($id,$name,$icon,$price,$file,$vue);
+            $view = \Controller\ControllerController::keyExist('view', $d);
+            $description = \Controller\ControllerController::keyExist('description', $d);
+            $product = new self($id,$name,$icon,$price,$file,$view,$description);
             array_push($objs, $product);
         }
         }

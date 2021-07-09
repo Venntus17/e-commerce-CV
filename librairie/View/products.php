@@ -5,7 +5,7 @@ $max_tab = ceil($nb_product/16);
 
 $tab = (isset($_GET['tab'])) ? (($_GET['tab'] != 0) ? $_GET['tab'] : 1) : 1;
 
-$products = \Controller\ProductController::SELECT();
+$products = \Controller\ProductController::SELECT(\Database::SELECT_ALL, null, null, ['view'=>'DESC']);
 $new_products = [];
 
 foreach ($products as $index => $product){
@@ -33,7 +33,7 @@ foreach ($products as $index => $product){
     </div>
     <div id="tabs">
         <?php for($i = 0; (($i >= ($tab-2) && $i <= ($tab+3)) && $i < $max_tab) ;$i++): ?>
-            <a href="/products/<?=$i+1?>" class="<?= ($i == $tab-1) ? "active" : null?>"><?=$i+1?></a>
+            <a href="/products/<?=$i+1?>" <?= ($i == $tab-1) ? "class='active'" : null?>><?=$i+1?></a>
         <?php endfor ?>
     </div>
 </div>

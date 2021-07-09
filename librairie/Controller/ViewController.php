@@ -28,6 +28,7 @@ class ViewController{
             case 'home': require_once("librairie/View/home.php");break;
             case 'contact': require_once("librairie/View/contact.php");break;
             case 'products': require_once("librairie/View/products.php");break;
+            case 'product': require_once("librairie/View/product.php");break;
         }
 
         if (!isset($_POST['ajax']))
