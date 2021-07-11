@@ -3,6 +3,10 @@
     src: url("font/CaviarDreams_Bold.ttf") format("truetype");
 }
 
+/*=================*/
+/*===== BASIC =====*/
+/*=================*/
+
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +16,22 @@
     font-family: "Caviar dreams"; /* Default font-family */
     color: black;
     outline: none;
+}
+
+p.error, p.valide{
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+p.error{
+  background-color: #ff00005c;
+  border: 2px solid red;
+}
+
+p.valide{
+  background-color: #00ff005c;
+    border: 2px solid green;
 }
 
 /*=======================*/
@@ -384,22 +404,6 @@ section{
 #contact #errors{
   display: flex;
   flex-direction: column;
-}
-
-#contact #errors p{
-  padding: 15px 30px;
-  border-radius: 5px;
-  margin-left: 10px;
-}
-
-#contact #errors p.error{
-  background-color: #ff00005c;
-  border: 2px solid red;
-}
-
-#contact #errors p.valide{
-  background-color: #00ff005c;
-    border: 2px solid green;
 }
 
 /*===================*/

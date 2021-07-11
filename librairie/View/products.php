@@ -7,7 +7,7 @@ $min_index = $max_index-16;
 
 if (!isset($_GET['s'])){
     $all_product = \Controller\ProductController::SELECT(\Database::SELECT_ALL, null, null, ['view'=>'DESC']);
-    $max_tab = ceil(count($all_product)/16);
+    $max_tab = ceil(count((isset($all_product)) ? $all_product : ['', ''])/16);
     $products = [];
     
     foreach ($all_product as $index => $product)
@@ -20,12 +20,14 @@ if (!isset($_GET['s'])){
     $where_array = [];
     $where_string = "WHERE ";
     foreach ($search_array as $key => $value) {
-        if ($where_string != "WHERE ")
-            $where_string .= " OR ";
+        if (!empty($value)){
+            if ($where_string != "WHERE ")
+                $where_string .= " OR ";
 
-        $where_array[":where_name_$key"] = "%$value%";
-        $where_array[":where_description_$key"] = "%$value%";
-        $where_string .= "\"name\" LIKE :where_name_$key OR \"description\" LIKE :where_description_$key";
+            $where_array[":where_name_$key"] = "%$value%";
+            $where_array[":where_description_$key"] = "%$value%";
+            $where_string .= "\"name\" LIKE :where_name_$key OR \"description\" LIKE :where_description_$key";
+        }
     }
 
     $prep = \Database::$db_array['fraxel']->getPDO()->prepare("SELECT * FROM \"Product\" $where_string ORDER BY \"view\" DESC");
@@ -33,7 +35,7 @@ if (!isset($_GET['s'])){
     if ($prep->execute($where_array))
         $products = \Model\Product::format($prep->fetchAll());
 
-    $max_tab = ceil(count($products)/16);
+    $max_tab = ceil(count((isset($products)) ? $products : [])/16);
 }
 
 ?>
@@ -47,8 +49,11 @@ if (!isset($_GET['s'])){
     </div>
     <div id="product_list">
         <?php 
-        foreach ($products as $product)
-            require("librairie/View/template/product.php");
+        if (isset($products))
+            foreach ($products as $product)
+                require("librairie/View/template/product.php");
+        else
+            echo "<p class='error'>Aucun produit correspond à votre recherche !<p>";
         ?>
     </div>
     <div id="tabs">
