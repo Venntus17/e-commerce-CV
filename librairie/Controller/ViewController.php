@@ -36,7 +36,7 @@ class ViewController{
     }
 
     public static function userPermission($page){
-        $basic = ['home', 'product', 'contact', 'login', 'search', 'products'];
+        $basic = ['home', 'product', 'contact', 'login', 'products'];
         
         $allow = false;
         if (!in_array($page, $basic)){
@@ -62,7 +62,9 @@ class ViewController{
             $s = strchr($_SERVER['REQUEST_URI'], "?s=");
             if ($s){
                 $s = str_replace('?s=', '', $s);
-                self::redirect("/search/$s");
+                if (!empty($s))
+                    self::redirect("/products/1/$s");
+                self::redirect("/products");
             }
         }
     }

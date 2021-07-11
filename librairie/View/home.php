@@ -20,7 +20,7 @@
         </div>
     </div>
     <div id="search">
-        <form action="/search/" method="GET">
+        <form id="search_form" action="/" method="GET">
             <input autocomplete="off" name="s" type="text" placeholder="Recherche ...">
             <button type="submit"></button>
         </form>
