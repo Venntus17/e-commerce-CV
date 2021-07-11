@@ -9,9 +9,10 @@
     <div>
         <img src="/picture/product/<?=$product->getIcon()?>" alt="Logo du produit">
         <div>
-            <p><?=$product->getName()?></p>
+            <h2><?=$product->getName()?></h2>
             <button>Télécharger</button>
         </div>
+        <p><?=$product->getDescription()?></p>
     </div>
-    <p><?=$product->getDescription()?></p>
+    
 </div>
