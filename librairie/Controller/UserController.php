@@ -30,9 +30,9 @@
 
             if ($mail_parse && $password_parse){
                 $user = \Controller\UserController::SELECT(\Database::SELECT_ALL, ['mail'=>$mail], 1);
-                if (count($user) == 1){
+                if ($user != null){
                     $user = $user[0];
-                    if (password_verify($password_parse, $user->getPassword())){
+                    if (password_verify('$2y$10$'.$password, $user->getPassword())){
                         $_SESSION['id'] = $user->getId();
                         $_SESSION['username'] = $user->getUsername();
                         $_SESSION['mail'] = $user->getMail();
@@ -95,12 +95,11 @@
 
             if ($username_parse && $mail_parse && $password_parse && $conf_password_parse){
                 $user = \Controller\UserController::SELECT(['id'], ['mail'=>$mail, 'OR', 'username'=>$username], 1);
-                if (count($user) == 0){
-                    $user = $user[0];
+                if ($user == null){
                     \Controller\UserController::INSERT([
-                        'username' => $user->getUsername(),
-                        'mail' => $user->getMail(),
-                        'password' => str_replace('$2$10$', '', password_hash($password, PASSWORD_DEFAULT)),
+                        'username' => $username,
+                        'mail' => $mail,
+                        'password' => str_replace('$2y$10$', '', password_hash($password, PASSWORD_DEFAULT)),
                         'role' => "member",
                         'mail_verified' => 0,
                         'cart_id' => -1

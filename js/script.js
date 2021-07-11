@@ -1,5 +1,7 @@
 window.onload = () => {
     sendMail();
+    login();
+    register();
 }
 
 function sendMail(){
@@ -60,3 +62,54 @@ function sendMail(){
         });
     }
 }
+
+function login(){
+    if (document.getElementById("login")){
+        let submit = document.querySelector("#signin button");
+        submit.addEventListener('click', () => {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == xhr.DONE && xhr.status == 200){
+                    let response = JSON.parse(xhr.responseText);
+                    console.log(response);
+                }
+            }
+
+            let form = new FormData();
+            form.append("ajax", true);
+            form.append("type", "signin");
+            form.append("mail", document.getElementById("signin_mail").value);
+            form.append("password", document.getElementById("signin_password").value);
+
+            xhr.open("POST", "/login");
+            xhr.send(form);
+        });
+    }
+}
+
+function register(){
+    if (document.getElementById("login")){
+        let submit = document.querySelector("#signup button");
+        submit.addEventListener('click', () => {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == xhr.DONE && xhr.status == 200){
+                    let response = JSON.parse(xhr.responseText);
+                    console.log(response);
+                }
+            }
+
+            let form = new FormData();
+            form.append("ajax", true);
+            form.append("type", "signup");
+            form.append("mail", document.getElementById("signup_mail").value);
+            form.append("password", document.getElementById("signup_password").value);
+            form.append("conf_password", document.getElementById("signup_conf_password").value);
+            form.append("username", document.getElementById("signup_username").value);
+
+            xhr.open("POST", "/login");
+            xhr.send(form);
+        });
+    }
+}
+
