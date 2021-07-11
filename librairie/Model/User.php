@@ -1,9 +1,9 @@
 <?php
     namespace Model;
     Class User{
-        private $id,$username,$mail,$password,$role,$vendor_id,$mail_verified,$cart_id;
+        private $id,$username,$mail,$password,$role,$mail_verified,$cart_id;
         public function __construct($id = null,$username = null,$mail = null,$password = null,$role = null,$vendor_id = null,$mail_verified = null,$cart_id = null){
-        $this->setId($id)->setUsername($username)->setMail($mail)->setPassword($password)->setRole($role)->setVendorId($vendor_id)->setMailVerified($mail_verified)->setCartId($cart_id);
+        $this->setId($id)->setUsername($username)->setMail($mail)->setPassword($password)->setRole($role)->setMailVerified($mail_verified)->setCartId($cart_id);
     }
         
         public function setId($id){
@@ -46,14 +46,6 @@
             return $this->role;
         }
 
-        public function setVendorId($vendor_id){
-            $this->vendor_id = $vendor_id;
-            return $this;
-        }
-        public function getVendorId(){
-            return $this->vendor_id;
-        }
-
         public function setMailVerified($mail_verified){
             $this->mail_verified = $mail_verified;
             return $this;
@@ -81,10 +73,9 @@
             $mail = \Controller\ControllerController::keyExist('mail', $d);
             $password = \Controller\ControllerController::keyExist('password', $d);
             $role = \Controller\ControllerController::keyExist('role', $d);
-            $vendor_id = \Controller\ControllerController::keyExist('vendor_id', $d);
             $mail_verified = \Controller\ControllerController::keyExist('mail_verified', $d);
             $cart_id = \Controller\ControllerController::keyExist('cart_id', $d);
-            $user = new self($id,$username,$mail,$password,$role,$vendor_id,$mail_verified,$cart_id);
+            $user = new self($id,$username,$mail,$password,$role,$mail_verified,$cart_id);
             array_push($objs, $user);
         }
         }
