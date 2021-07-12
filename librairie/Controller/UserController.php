@@ -32,7 +32,7 @@
                 $user = \Controller\UserController::SELECT(\Database::SELECT_ALL, ['mail'=>$mail], 1);
                 if ($user != null){
                     $user = $user[0];
-                    if (password_verify('$2y$10$'.$password, $user->getPassword())){
+                    if (password_verify($password, '$2y$10$'.$user->getPassword())){
                         $_SESSION['id'] = $user->getId();
                         $_SESSION['username'] = $user->getUsername();
                         $_SESSION['mail'] = $user->getMail();
@@ -94,7 +94,7 @@
                 $err['conf_password'] = "Le mot de passe de confirmation est obligatoire !";
 
             if ($username_parse && $mail_parse && $password_parse && $conf_password_parse){
-                $user = \Controller\UserController::SELECT(['id'], ['mail'=>$mail, 'OR', 'username'=>$username], 1);
+                $user = \Controller\UserController::SELECT(['id'], ['mail'=>$mail, 'OR'=>\Database::WHERE_KEY, 'username'=>$username], 1);
                 if ($user == null){
                     \Controller\UserController::INSERT([
                         'username' => $username,
