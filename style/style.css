@@ -34,6 +34,10 @@ p.valide{
     border: 2px solid green;
 }
 
+#tabs a.active{
+    color: gray;
+}
+
 /*=======================*/
 /*===== SEARCH FORM =====*/
 /*=======================*/
@@ -432,18 +436,20 @@ section{
 }
 
 #prod > div > div button{
-	margin-top: 80px;
+	  margin-top: 80px;
     padding: 8px 0px;
     background-color: #4caf50;
     border: none;
     border-radius: 3px;
-	transition: 300ms;
+	  transition: 300ms;
 }
 
 #prod > div > div button:hover{
 	background-color: green;
 	cursor: pointer;
 }
+
+
 
 /*==================*/
 /*===== FOOTER =====*/
