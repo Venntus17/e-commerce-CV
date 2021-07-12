@@ -30,6 +30,7 @@ class ViewController{
             case 'products': require_once("librairie/View/products.php");break;
             case 'product': require_once("librairie/View/product.php");break;
             case 'login': require_once("librairie/View/login.php");break;
+            case 'myaccount': require_once("librairie/View/myaccount.php");break;
         }
 
         if (!isset($_POST['ajax']))
@@ -38,10 +39,20 @@ class ViewController{
 
     public static function userPermission($page){
         $basic = ['home', 'product', 'contact', 'login', 'products'];
+        $member = ['account'];
         
         $allow = false;
         if (!in_array($page, $basic)){
-            if (isset($_SESSION['id']));
+            if (isset($_SESSION['id'])){
+                $roles = explode(',', $_SESSION['role']);
+
+                if (in_array('administrator', $roles))
+                    $allow = true;
+
+                if (in_array('member', $roles))
+                    if (in_array($page, $member))
+                        $allow = true;
+            }
         }else
             $allow = true;
 
