@@ -105,7 +105,7 @@
                         'cart_id' => -1
                     ]);
 
-                    return true;
+                    $err = self::login();
                 }else
                     $err['error'] = "L'utilisateur existe déjà !";
             }

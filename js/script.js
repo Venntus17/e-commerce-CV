@@ -70,8 +70,30 @@ function login(){
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == xhr.DONE && xhr.status == 200){
-                    let response = JSON.parse(xhr.responseText);
-                    console.log(response);
+                    let res = JSON.parse(xhr.responseText);
+                    console.log(res);
+
+                    if (Object.keys(res).length != 0){
+                        if (res['mail']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['mail'];
+                        }
+
+                        if (res['password']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['password'];
+                        }
+
+                        if (res['error']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['error'];
+                        }
+                    }else{
+                        window.location.replace("/myaccount");
+                    }
                 }
             }
 
@@ -94,8 +116,41 @@ function register(){
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == xhr.DONE && xhr.status == 200){
-                    let response = JSON.parse(xhr.responseText);
-                    console.log(response);
+                    let res = JSON.parse(xhr.responseText);
+
+                    if (Object.keys(res).length != 0){
+                        if (res['mail']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['mail'];
+                        }
+
+                        if (res['username']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['username'];
+                        }
+
+                        if (res['password']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['password'];
+                        }
+
+                        if (res['conf_password']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['conf_password'];
+                        }
+
+                        if (res['error']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['error'];
+                        }
+                    }else{
+                        window.location.replace("/myaccount");
+                    }
                 }
             }
 
