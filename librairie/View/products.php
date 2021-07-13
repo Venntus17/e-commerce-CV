@@ -53,7 +53,7 @@ if (!isset($_GET['s'])){
             foreach ($products as $product)
                 require("librairie/View/template/product.php");
         else
-            echo "<p class='error'>Aucun produit correspond à votre recherche !<p>";
+            echo "<p class='error'>Aucun produit correspond à votre recherche !</p>";
         ?>
     </div>
     <div id="tabs">
