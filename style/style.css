@@ -478,7 +478,7 @@ section{
     margin-right: 50px;
 }
 
-#login #signup > div{
+#login #signup > div:first-of-type{
     display: flex;
     justify-content: space-between;
     height: 130px;
@@ -536,6 +536,7 @@ section{
 #login form p{
     background: none;
     border: none;
+    padding: 0;
 }
 
 #login form p.error{

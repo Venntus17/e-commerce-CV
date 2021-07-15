@@ -71,24 +71,41 @@ function login(){
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == xhr.DONE && xhr.status == 200){
                     let res = JSON.parse(xhr.responseText);
+                    let form = document.getElementById("signin");
+                    form.style.height = 258+'px';
+
+                    let errs = document.querySelector("#signin .errors");
+                    errs.innerHTML = "";
 
                     if (Object.keys(res).length != 0){
                         if (res['mail']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['mail'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['password']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['password'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['error']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['error'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
                     }else{
                         window.location.replace("/myaccount");
@@ -116,36 +133,61 @@ function register(){
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == xhr.DONE && xhr.status == 200){
                     let res = JSON.parse(xhr.responseText);
+                    let form = document.getElementById("signup");
+                    form.style.height = 258+'px';
+
+                    let errs = document.querySelector("#signup .errors");
+                    errs.innerHTML = "";
 
                     if (Object.keys(res).length != 0){
                         if (res['mail']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['mail'];
+                            
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['username']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['username'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['password']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['password'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['conf_password']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['conf_password'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
 
                         if (res['error']){
                             let p = document.createElement("p");
                             p.classList.add("error");
                             p.innerText = res['error'];
+
+                            errs.insertAdjacentElement("beforeend", p);
+
+                            form.style.height = (form.clientHeight-40)+21+'px';
                         }
                     }else{
                         window.location.replace("/myaccount");

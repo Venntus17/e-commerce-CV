@@ -30,6 +30,9 @@ if (isset($_POST['type'])){
         </label>
         <input type="hidden" name="type" value="signin">
         <button type="button">Se connecter</button>
+        <div class="errors">
+
+        </div>
     </form>
     <form id="signup">
         <h3>Inscription</h3>
@@ -57,5 +60,8 @@ if (isset($_POST['type'])){
         </div>
         <input type="hidden" name="type" value="signup">
         <button type="button">S'inscrire</button>
+        <div class="errors">
+
+        </div>
     </form>
 </div>
