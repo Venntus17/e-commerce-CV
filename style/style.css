@@ -449,7 +449,102 @@ section{
 	cursor: pointer;
 }
 
+/*=================*/
+/*===== LOGIN =====*/
+/*=================*/
 
+#login {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}
+
+#login form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    justify-content: space-between;
+    padding: 20px;
+    width: 25%;
+    min-height: fit-content;
+    min-width: fit-content;
+}
+
+#login #signup{
+    width: 30%;
+}
+
+#login #signin{
+    margin-right: 50px;
+}
+
+#login #signup > div{
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    flex-direction: column;
+}
+
+#login #signup > div div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#login form label{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+#login form label input{
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #b9b9b9;
+    margin-top: 5px;
+}
+
+#login form label input[type='password']{
+    font-size: 18px;
+}
+
+#login #signup > div div label:nth-child(1){
+    margin-right: 10px;
+}
+
+#login form button[type='button']{
+    border-radius: 5px;
+    background-color: #3f51b5;
+    border: none;
+    padding: 10px;
+    width: 80%;
+    align-self: center;
+    font-size: 1em;
+}
+
+#login #signup button[type='button']{
+    width: 70%;
+}
+
+#login form button[type='button']:hover{
+    cursor: pointer;
+}
+
+#login #signin button[type='button']{
+    background-color: green;
+}
+
+#login form p{
+    background: none;
+    border: none;
+}
+
+#login form p.error{
+    color: red;
+}
+
+#login form p.valide{
+    color: green;
+}
 
 /*==================*/
 /*===== FOOTER =====*/

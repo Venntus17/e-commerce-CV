@@ -71,7 +71,6 @@ function login(){
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == xhr.DONE && xhr.status == 200){
                     let res = JSON.parse(xhr.responseText);
-                    console.log(res);
 
                     if (Object.keys(res).length != 0){
                         if (res['mail']){

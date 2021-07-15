@@ -31,6 +31,7 @@ class ViewController{
             case 'product': require_once("librairie/View/product.php");break;
             case 'login': require_once("librairie/View/login.php");break;
             case 'myaccount': require_once("librairie/View/myaccount.php");break;
+            case 'logout': require_once("librairie/View/logout.php");break;
         }
 
         if (!isset($_POST['ajax']))
