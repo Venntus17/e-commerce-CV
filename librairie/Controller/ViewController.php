@@ -40,7 +40,7 @@ class ViewController{
 
     public static function userPermission($page){
         $basic = ['home', 'product', 'contact', 'login', 'products'];
-        $member = ['account'];
+        $member = ['myaccount', 'logout'];
         
         $allow = false;
         if (!in_array($page, $basic)){

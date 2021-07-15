@@ -89,10 +89,7 @@ p.valide{
 }
 
 #product_list .product{
-    width: 230px;
-    height: 250px;
     margin: 10px 30px;
-    padding: 20px;
     border: 1px solid #dadada;
 }
 
@@ -101,18 +98,16 @@ p.valide{
 }
 
 #product_list .product a{
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
-
-#product_list .product a{
-    padding: 10px;
+    padding: 20px;
+    width: 230px;
+    height: 250px;
 }
 
 #product_list .product a img{
-    height: 50%;
+    height: 60%;
     width: 80%;
 }
 

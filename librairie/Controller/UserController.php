@@ -87,7 +87,7 @@
                     if ($conf_password == $password){
                         $conf_password_parse = true;
                     }else
-                        $err['conf_password'] = "Les mot de passe doivent être identiques !";
+                        $err['conf_password'] = "Les mots de passe doivent être identiques !";
                 }else
                     $err['conf_password'] = "Le mot de passe de confirmation doit contenire au moins 8 charactères !";
             }else
