@@ -2,6 +2,7 @@ window.onload = () => {
     sendMail();
     login();
     register();
+    modifySettings()
 }
 
 function sendMail(){
@@ -9,7 +10,7 @@ function sendMail(){
         document.querySelector("form button[type='button']").addEventListener('click', () => {
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4 && xhr.status == 200){
+                if (xhr.readyState == xhr.DONE && xhr.status == 200){
                     let res = xhr.responseText;
                     res = JSON.parse(res);
 
@@ -209,3 +210,55 @@ function register(){
     }
 }
 
+function modifySettings(){
+    if (document.querySelector("#myaccount #myaccount__settings")){
+        document.querySelector("#myaccount__settings form button[type='button']").addEventListener('click', () => {
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == xhr.DONE && xhr.status == 200){
+                    let res = JSON.parse(xhr.responseText);
+                    console.log(res);
+
+                    let errors = document.getElementById("errors");
+                        errors.innerHTML = null;
+
+                    if (Object.keys(res).length != 0){
+                        if (res['username']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['username'];
+                            errors.insertAdjacentElement("beforeend", p);
+                        }
+
+                        if (res['mail']){
+                            let p = document.createElement("p");
+                            p.classList.add("error");
+                            p.innerText = res['mail'];
+                            errors.insertAdjacentElement("beforeend", p);
+                        }
+                    }else{
+                        let p = document.createElement("p");
+                        p.classList.add("valide");
+                        p.innerText = "Vos données on bien été modifiés !";
+                        errors.insertAdjacentElement("beforeend", p);
+                    }
+                }
+            };
+
+            let form = new FormData();
+
+            form.append("ajax", true);
+            form.append("type", "usrmail");
+
+            let username = document.getElementById("username").value;
+            let mail = document.getElementById("mail").value;
+
+            form.append("username", username);
+            form.append("mail", mail);
+
+            xhr.open("POST", "/myaccount/settings");
+            xhr.send(form);
+        });
+    }
+}

@@ -543,6 +543,22 @@ section{
 }
 
 /*==================*/
+/*===== ACCOUT =====*/
+/*==================*/
+
+#myaccount{
+    display: flex;
+}
+
+#myaccount > div:first-of-type{
+    width: 15%;
+}
+
+#myaccount > div:last-of-type{
+    width: 85%;
+}
+
+/*==================*/
 /*===== FOOTER =====*/
 /*==================*/
 

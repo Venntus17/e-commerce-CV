@@ -112,4 +112,56 @@
 
             return $err;
         }
+
+        public static function modifySettings(){
+            $username = \Controller\ControllerController::keyExist('username', $_POST);
+            $mail = \Controller\ControllerController::keyExist('mail', $_POST);
+
+            $err = [];
+
+            $username_parse = false;
+            if (!empty($username)){
+                $user_tmp = \Controller\UserController::SELECT(['id'], ['username'=>$username], 1);
+                if ($user_tmp == null){
+                    $username_parse = true;
+                }else{
+                    if ($user_tmp[0]->getID() != $_SESSION['id'])
+                        $err['username'] = "Ce nom d'utilisateur existe déjà !";
+                }
+            }else
+                $err['username'] = "Le nom d'utilisateur est obligatoire !";
+
+            $mail_parse = false;
+            if (!empty($mail)){
+                if (filter_var($mail, FILTER_VALIDATE_EMAIL)){
+                    $user_tmp = \Controller\UserController::SELECT(['id'], ['mail'=>$mail], 1);
+                    if ($user_tmp == null){
+                        $mail_parse = true;
+                    }else{
+                        if ($user_tmp[0]->getID() != $_SESSION['id'])
+                            $err['mail'] = "Cette adresse mail existe déjà !";
+                    }
+                }else
+                    $err['mail'] = "L'adresse mail n'est pas valide !";
+            }else
+                $err['mail'] = "L'adresse mail est obligatoire !";
+
+            $set = [];
+
+            if ($username_parse){
+                $set['username'] = $username;
+                $_SESSION['username'] = $username;
+            }
+            if ($mail_parse){
+                $set['mail'] = $mail;
+                $_SESSION['mail'] = $mail;
+            }
+
+            if (!empty($set)){
+                \Controller\UserController::UPDATE($set, ['id'=>$_SESSION['id']]);
+                return true;
+            }
+
+            return (!empty($err)) ? $err : true;
+        }
     }
