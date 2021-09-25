@@ -193,7 +193,7 @@ function createDatabase(string $model_name, array $var_ele, string $database_nam
 
 }
 
-$database_name = getUserInput("Entre le que vous avez donner à votre base de donnée: ");
+$database_name = getUserInput("Entrez le nom de la base de donnée: ");
 $model_name = getUserInput("Entrez un nom pour le Model (la première lettre en majuscule): ");
 
 echo "Création des tables (ne pas mettre d'espace mais des '_').\n";
@@ -202,7 +202,7 @@ $var = "";
 while($var != "-1"){
     if ($var != "")
         $var_ele[$var] = $type;
-    $var = getUserInput("Nom de la table(-1 pour arrêter): ");
+    $var = getUserInput("Nom de la colonne(-1 pour arrêter): ");
     if ($var == "-1")
         break;
     $type = getUserInput("Type de donnée (int, text, serial)");
